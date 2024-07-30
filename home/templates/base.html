@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Project{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .d-flex-column {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .flex-grow-1 {
+            flex: 1;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer .social-icons a {
+            margin: 0 10px;
+            color: #343a40;
+        }
+        .navbar-brand.logo {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: #fff !important;
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .logo-icon i {
+            color: #dc3545;
+            font-size: 1.2rem;
+        }
+        .btn-login, .btn-signup {
+            margin-left: 15px; /* Adjust this value as needed */
+        }
+        .btn-rounded {
+            border-radius: 25px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex-column">
+        <nav class="navbar navbar-dark bg-danger shadow-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="#">
+                    <div class="logo-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    PIZZIO
+                </a>
+                <div class="ml-auto d-flex align-items-center">
+                    {% if request.user.is_authenticated %}
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle btn-rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{% url 'login' %}">Dashboard</a>
+                                <form method="post" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-rounded btn-login">Login</a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-light btn-rounded btn-signup">Sign up</a>
+                    {% endif %}
+                    <form class="ml-3">
+                        <a class="btn btn-light btn-rounded" href="{% url 'cart' %}">
+                            <i class="fas fa-shopping-cart"></i>
+                            {{ request.user.get_cart_count }}
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-5 flex-grow-1">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-danger text-white">
+            <div class="container">
+                <p>&copy; 2024 PIZZIO. All Rights Reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

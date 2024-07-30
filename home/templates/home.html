@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+
+        {% for pizza in pizzas %}
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card shadow-lg rounded-lg glass-effect" style="width: 100%; overflow: hidden;">
+                <div class="card-image-container" style="position: relative;">
+                    <img src="/media/{{pizza.images}}" style="height: 250px; object-fit: cover; width: 100%;" class="card-img-top" alt="Pizza Image">
+                    <div class="image-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s;"></div>
+                </div>
+                <div class="card-body d-flex flex-column p-4">
+                    <h5 class="card-title">{{pizza.pizza_name}}</h5>
+                    <p class="text-muted mb-2">Price - {{pizza.price}} | Category - {{pizza.category.category_name}}</p>
+                    <p class="card-text flex-grow-1">{{pizza.description}}</p>
+                    <div class="mt-auto d-flex justify-content-between">
+                        <a href="{%url 'add_cart' pizza.uid %}" class="btn btn-success">Cart <i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="btn btn-primary">20% Discount</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+<style>
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.15); /* Increased transparency */
+        backdrop-filter: blur(20px); /* Increased blur */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .glass-effect:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
+    .card:hover .image-overlay {
+        opacity: 0.3;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        color: #555;
+    }
+
+    .btn {
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .card {
+        border: none;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .image-overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s;
+    }
+
+    .card-image-container:hover .image-overlay {
+        opacity: 0.2;
+    }
+</style>
+
+{% endblock %}
+
+
+
+
+
+
+
