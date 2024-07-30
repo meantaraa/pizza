@@ -11,7 +11,7 @@ Welcome to Pizzio, an online pizza ordering system developed as part of my BCT t
 # 🔧 Tech Stack
 - Backend: Django, Django ORM
 - Frontend: HTML, CSS, Bootstrap
-- Database: SQLite (or any other compatible Django database)
+- Database: SQLite 
 - Authentication: Django's built-in authentication system
  
  # 💻 Setup and Installation
