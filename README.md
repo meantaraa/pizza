@@ -8,18 +8,18 @@ Welcome to Pizzio, an online pizza ordering system developed as part of my BCT t
 - Shopping Cart System
 - Responsive Design
 
-  # 🔧 Tech Stack
-  - Backend: Django, Django ORM
-  - Frontend: HTML, CSS, Bootstrap
-  - Database: SQLite (or any other compatible Django database)
-  - Authentication: Django's built-in authentication system
+# 🔧 Tech Stack
+- Backend: Django, Django ORM
+- Frontend: HTML, CSS, Bootstrap
+- Database: SQLite (or any other compatible Django database)
+- Authentication: Django's built-in authentication system
  
-   # 💻 Setup and Installation
-  - Clone the repository:i) git clone https://github.com/your-username/pizzio.git ii) cd pizzio
-  - Create and activate a virtual environment: i) python -m venv env ii) source env/bin/activate
-  - Install dependencies:pip install -r requirements.txt
-  - Run migrations: python manage.py migrate
-  - Create a superuser: python manage.py createsuperuser
-  - Start the development server:python manage.py runserver
-  - Access the site: Visit http://localhost:8000 in your browser.
+ # 💻 Setup and Installation
+- Clone the repository:i) git clone https://github.com/your-username/pizzio.git ii) cd pizzio
+- Create and activate a virtual environment: i) python -m venv env ii) source env/bin/activate
+- Install dependencies:pip install -r requirements.txt
+- Run migrations: python manage.py migrate
+- Create a superuser: python manage.py createsuperuser
+- Start the development server:python manage.py runserver
+- Access the site: Visit http://localhost:8000 in your browser.
     
