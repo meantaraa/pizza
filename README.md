@@ -15,7 +15,7 @@ Welcome to Pizzio, an online pizza ordering system developed as part of my BCT t
 - Authentication: Django's built-in authentication system
  
  # 💻 Setup and Installation
-- Clone the repository:i) git clone https://github.com/meantaraa/pizzio.git ii) cd pizza
+- Clone the repository:i) git clone https://github.com/meantaraa/pizza-delivery-site-using-django.git ii) cd pizza
 - Create and activate a virtual environment: i) python -m venv env ii) source env/bin/activate
 - Install dependencies:pip install -r requirements.txt
 - Run migrations: python manage.py migrate
